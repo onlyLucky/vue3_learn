@@ -38,3 +38,4 @@ console.log(Array.from(str), str);
 
 [mdn string](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String)
 [mdn array](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)
+[emoji](https://www.emojiall.com/zh-hans)
