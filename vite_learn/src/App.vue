@@ -2,6 +2,7 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import TemplateSyntax from "./components/basic/template_syntax.vue";
+import MyRef from "./components/basic/ref.vue";
 </script>
 
 <template>
@@ -13,7 +14,8 @@ import TemplateSyntax from "./components/basic/template_syntax.vue";
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <TemplateSyntax></TemplateSyntax>
+  <!-- <TemplateSyntax></TemplateSyntax> -->
+  <MyRef></MyRef>
 </template>
 
 <style scoped>
