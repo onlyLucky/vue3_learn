@@ -3,6 +3,7 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import TemplateSyntax from "./components/basic/template_syntax.vue";
 import MyRef from "./components/basic/ref.vue";
+import MyReactive from "./components/basic/reactive.vue";
 </script>
 
 <template>
@@ -15,7 +16,8 @@ import MyRef from "./components/basic/ref.vue";
     </a>
   </div>
   <!-- <TemplateSyntax></TemplateSyntax> -->
-  <MyRef></MyRef>
+  <!-- <MyRef></MyRef> -->
+  <MyReactive></MyReactive>
 </template>
 
 <style scoped>
