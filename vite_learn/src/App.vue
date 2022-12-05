@@ -1,10 +1,10 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import TemplateSyntax from "./components/basic/template_syntax.vue";
-import MyRef from "./components/basic/ref.vue";
-import MyReactive from "./components/basic/reactive.vue";
-import MyTo from "./components/basic/to.vue";
+import TemplateSyntax from "./components/basic/01_template_syntax.vue";
+import MyRef from "./components/basic/02_ref.vue";
+import MyReactive from "./components/basic/03_reactive.vue";
+import MyTo from "./components/basic/04_to.vue";
 </script>
 
 <template>
