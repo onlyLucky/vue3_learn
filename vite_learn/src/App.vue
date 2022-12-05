@@ -7,6 +7,7 @@ import MyReactive from "./components/basic/03_reactive.vue";
 import MyTo from "./components/basic/04_to.vue";
 import MyComputed from "./components/basic/05_computed.vue";
 import MyWatch from "./components/basic/06_watch.vue";
+import MyWatchEffect from "./components/basic/07_watchEffect.vue";
 </script>
 
 <template>
@@ -23,7 +24,8 @@ import MyWatch from "./components/basic/06_watch.vue";
   <!-- <MyReactive></MyReactive> -->
   <!-- <MyTo></MyTo> -->
   <!-- <MyComputed></MyComputed> -->
-  <MyWatch></MyWatch>
+  <!-- <MyWatch></MyWatch> -->
+  <MyWatchEffect></MyWatchEffect>
 </template>
 
 <style scoped>
