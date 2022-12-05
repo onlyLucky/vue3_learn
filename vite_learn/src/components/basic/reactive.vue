@@ -2,22 +2,23 @@
  * @Author: fg
  * @Date: 2022-12-04 21:22:14
  * @LastEditors: fg
- * @LastEditTime: 2022-12-04 22:55:06
+ * @LastEditTime: 2022-12-05 10:03:21
  * @Description: Reactive api的使用
 -->
 
 <!-- 用来绑定复杂的数据类型 例如 对象 数组 -->
 <template>
-  <h3>reactive</h3>
+  <h3>reactive:用来绑定复杂的数据类型 例如 对象 数组</h3>
   <div>{{ person.name }}</div>
   <button @click="handleReactiveChange">change</button>
   <div>tempArr: {{ tempArr }}</div>
   <div>tempArr1: {{ tempArr1 }}</div>
   <div>tempArr2: {{ tempArr2.list }}</div>
+  <h3>readonly: 拷贝一份proxy对象将其设置为只读</h3>
 </template>
 
 <script setup lang="ts">
-import { reactive } from "vue";
+import { reactive, readonly } from "vue";
 
 let person = reactive({
   name: "reactive name",
@@ -44,7 +45,7 @@ setTimeout(() => {
   tempArr1.push(...arr);
   console.log(tempArr1, "tempArr");
 }, 1000);
-
+// 解决方案2，包裹一层对象
 type TempArr = {
   list?: Array<number>;
 };
@@ -55,6 +56,11 @@ setTimeout(() => {
   tempArr2.list = [1, 2, 3, 4, 5, 6];
   console.log(tempArr2);
 }, 1500);
+
+// readOnly
+let copyPerson = readonly(person);
+// 无法进行赋值。
+// copyPerson.name = "readonly change obj";
 </script>
 
 <style></style>
