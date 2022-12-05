@@ -4,6 +4,7 @@
 import TemplateSyntax from "./components/basic/template_syntax.vue";
 import MyRef from "./components/basic/ref.vue";
 import MyReactive from "./components/basic/reactive.vue";
+import MyTo from "./components/basic/to.vue";
 </script>
 
 <template>
@@ -17,7 +18,8 @@ import MyReactive from "./components/basic/reactive.vue";
   </div>
   <!-- <TemplateSyntax></TemplateSyntax> -->
   <!-- <MyRef></MyRef> -->
-  <MyReactive></MyReactive>
+  <!-- <MyReactive></MyReactive> -->
+  <MyTo></MyTo>
 </template>
 
 <style scoped>
