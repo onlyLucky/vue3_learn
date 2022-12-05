@@ -2,7 +2,7 @@
  * @Author: fg
  * @Date: 2022-12-04 21:22:14
  * @LastEditors: fg
- * @LastEditTime: 2022-12-05 10:03:21
+ * @LastEditTime: 2022-12-05 10:27:39
  * @Description: Reactive api的使用
 -->
 
@@ -15,10 +15,20 @@
   <div>tempArr1: {{ tempArr1 }}</div>
   <div>tempArr2: {{ tempArr2.list }}</div>
   <h3>readonly: 拷贝一份proxy对象将其设置为只读</h3>
+  <h3>
+    shallowReactive: 只能对浅层的数据 如果是深层的数据只会改变值 不会改变视图
+  </h3>
+  <button @click="handleShallowReactiveChange1">
+    handleShallowReactiveChange1
+  </button>
+  <button @click="handleShallowReactiveChange2">
+    handleShallowReactiveChange2
+  </button>
+  <p>status: {{ status }}</p>
 </template>
 
 <script setup lang="ts">
-import { reactive, readonly } from "vue";
+import { reactive, readonly, shallowReactive } from "vue";
 
 let person = reactive({
   name: "reactive name",
@@ -61,6 +71,32 @@ setTimeout(() => {
 let copyPerson = readonly(person);
 // 无法进行赋值。
 // copyPerson.name = "readonly change obj";
+
+// shallowReactive
+type StatusObj = {
+  [propName: string]: any;
+};
+let status = shallowReactive({
+  a: 1,
+  b: 2,
+  c: {
+    value: 3,
+    d: 4,
+    e: {
+      value: 5,
+      f: 6,
+    },
+  },
+} as StatusObj);
+
+let handleShallowReactiveChange1 = () => {
+  status.a = "one";
+};
+let handleShallowReactiveChange2 = () => {
+  // 在这里不可以更改深层的object,先调用这个，数据更改dom未进行更改。再调用上面的函数，dom会更新
+  status.c.e.value = "tree value";
+  console.log(status);
+};
 </script>
 
 <style></style>
