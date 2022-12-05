@@ -6,6 +6,7 @@ import MyRef from "./components/basic/02_ref.vue";
 import MyReactive from "./components/basic/03_reactive.vue";
 import MyTo from "./components/basic/04_to.vue";
 import MyComputed from "./components/basic/05_computed.vue";
+import MyWatch from "./components/basic/06_watch.vue";
 </script>
 
 <template>
@@ -21,7 +22,8 @@ import MyComputed from "./components/basic/05_computed.vue";
   <!-- <MyRef></MyRef> -->
   <!-- <MyReactive></MyReactive> -->
   <!-- <MyTo></MyTo> -->
-  <MyComputed></MyComputed>
+  <!-- <MyComputed></MyComputed> -->
+  <MyWatch></MyWatch>
 </template>
 
 <style scoped>
