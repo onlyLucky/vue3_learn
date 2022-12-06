@@ -8,6 +8,11 @@ import MyTo from "./components/basic/04_to.vue";
 import MyComputed from "./components/basic/05_computed.vue";
 import MyWatch from "./components/basic/06_watch.vue";
 import MyWatchEffect from "./components/basic/07_watchEffect.vue";
+import MyDefineProps from "./components/basic/08_defineProps.vue";
+
+import { ref, reactive } from "vue";
+let dataArr = reactive<number[]>([1, 2, 3, 4, 5, 6]);
+let age = ref<number>(20);
 </script>
 
 <template>
@@ -25,7 +30,13 @@ import MyWatchEffect from "./components/basic/07_watchEffect.vue";
   <!-- <MyTo></MyTo> -->
   <!-- <MyComputed></MyComputed> -->
   <!-- <MyWatch></MyWatch> -->
-  <MyWatchEffect></MyWatchEffect>
+  <!-- <MyWatchEffect></MyWatchEffect> -->
+  <MyDefineProps
+    :data="dataArr"
+    title="这是个标题"
+    name="hh"
+    :age="age"
+  ></MyDefineProps>
 </template>
 
 <style scoped>
