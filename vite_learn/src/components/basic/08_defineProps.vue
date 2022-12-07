@@ -2,7 +2,7 @@
  * @Author: fg
  * @Date: 2022-12-06 14:36:57
  * @LastEditors: fg
- * @LastEditTime: 2022-12-07 09:37:30
+ * @LastEditTime: 2022-12-07 14:23:25
  * @Description: 父子组件通信
 -->
 <template>
@@ -19,9 +19,10 @@
       </ul>
     </div>
   </div>
+  <button @click="toParent">传递数据</button>
 </template>
 <script setup lang="ts">
-import { defineProps } from "vue";
+import { reactive } from "vue";
 // 子组件接受值
 /* defineProps<{
   title?: string;
@@ -41,5 +42,18 @@ withDefaults(
   }
 );
 // defineProps withDefaults 两个只能用一个页面只能用一个。
+
+// 子组件给父组件传参
+let toParentsData = reactive<number[]>([1, 3, 5, 7]);
+let emit = defineEmits(["on-click", "tap"]);
+const toParent = () => {
+  emit("on-click", toParentsData);
+  emit("tap", "这个是tap");
+};
+
+// 子组件暴露给父组件内部属性
+defineExpose({
+  num: toParentsData,
+});
 </script>
 <style></style>

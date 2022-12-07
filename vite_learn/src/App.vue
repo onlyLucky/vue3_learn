@@ -1,19 +1,3 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import TemplateSyntax from "./components/basic/01_template_syntax.vue";
-import MyRef from "./components/basic/02_ref.vue";
-import MyReactive from "./components/basic/03_reactive.vue";
-import MyTo from "./components/basic/04_to.vue";
-import MyComputed from "./components/basic/05_computed.vue";
-import MyWatch from "./components/basic/06_watch.vue";
-import MyWatchEffect from "./components/basic/07_watchEffect.vue";
-import MyDefineProps from "./components/basic/08_defineProps.vue";
-
-import { ref, reactive } from "vue";
-let dataArr = reactive<number[]>([1, 2, 3, 4, 5, 6]);
-</script>
-
 <template>
   <div>
     <a href="https://vitejs.dev" target="_blank">
@@ -30,8 +14,51 @@ let dataArr = reactive<number[]>([1, 2, 3, 4, 5, 6]);
   <!-- <MyComputed></MyComputed> -->
   <!-- <MyWatch></MyWatch> -->
   <!-- <MyWatchEffect></MyWatchEffect> -->
-  <MyDefineProps :data="dataArr" title="这是个标题"></MyDefineProps>
+  <MyDefineProps
+    ref="DefineCom"
+    :data="dataArr"
+    title="这是个标题"
+    @on-click="parentTap"
+    @tap="pTap"
+  ></MyDefineProps>
 </template>
+
+<script setup lang="ts">
+// This starter template is using Vue 3 <script setup> SFCs
+// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
+import TemplateSyntax from "./components/basic/01_template_syntax.vue";
+import MyRef from "./components/basic/02_ref.vue";
+import MyReactive from "./components/basic/03_reactive.vue";
+import MyTo from "./components/basic/04_to.vue";
+import MyComputed from "./components/basic/05_computed.vue";
+import MyWatch from "./components/basic/06_watch.vue";
+import MyWatchEffect from "./components/basic/07_watchEffect.vue";
+import MyDefineProps from "./components/basic/08_defineProps.vue";
+
+import { ref, reactive } from "vue";
+let dataArr = reactive<number[]>([1, 2, 3, 4, 5, 6]);
+
+const parentTap = (val: number[]) => {
+  console.log(val, "val");
+};
+const pTap = (val: string) => {
+  console.log(val, "@@@@");
+};
+
+//这样获取是有代码提示的
+/* type DefineCom = {
+  toParentsData: number[];
+}; */
+const DefineCom = ref();
+console.log(DefineCom.value, "defineCom");
+</script>
+<script lang="ts">
+export default {
+  mounted() {
+    console.log(this.$refs.DefineCom.num.length, "DefineCom");
+  },
+};
+</script>
 
 <style scoped>
 .logo {
