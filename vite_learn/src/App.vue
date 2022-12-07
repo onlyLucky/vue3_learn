@@ -12,7 +12,6 @@ import MyDefineProps from "./components/basic/08_defineProps.vue";
 
 import { ref, reactive } from "vue";
 let dataArr = reactive<number[]>([1, 2, 3, 4, 5, 6]);
-let age = ref<number>(20);
 </script>
 
 <template>
@@ -31,12 +30,7 @@ let age = ref<number>(20);
   <!-- <MyComputed></MyComputed> -->
   <!-- <MyWatch></MyWatch> -->
   <!-- <MyWatchEffect></MyWatchEffect> -->
-  <MyDefineProps
-    :data="dataArr"
-    title="这是个标题"
-    name="hh"
-    :age="age"
-  ></MyDefineProps>
+  <MyDefineProps :data="dataArr" title="这是个标题"></MyDefineProps>
 </template>
 
 <style scoped>
