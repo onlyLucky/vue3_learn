@@ -26,8 +26,9 @@
   ></MyDefineProps> -->
   <!-- <BasicDefineExpose></BasicDefineExpose> -->
   <!-- <WaterFall :list="list"></WaterFall> -->
-  <GlobalHandle></GlobalHandle>
-  <GlobalComps msg="%%%"></GlobalComps>
+  <!-- <GlobalHandle></GlobalHandle> -->
+  <!-- <GlobalComps msg="%%%"></GlobalComps> -->
+  <TreeVue :data="data"></TreeVue>
 </template>
 
 <script setup lang="ts">
@@ -43,6 +44,7 @@ import MyWatchEffect from "./components/basic/07_watchEffect.vue";
 import MyDefineProps from "./components/basic/08_defineProps.vue";
 import BasicDefineExpose from "./components/basic/09_defineExpose/parent.vue";
 import WaterFall from "./components/basic/10_waterFall.vue";
+import TreeVue from "./components/basic/Tree.vue";
 
 import { ref, reactive, onMounted } from "vue";
 let dataArr = reactive<number[]>([1, 2, 3, 4, 5, 6]);
@@ -215,6 +217,54 @@ const list = [
     background: "green",
   },
 ];
+
+type TreeList = {
+  name: string;
+  icon?: string;
+  checked?: boolean;
+  children?: TreeList[] | [];
+};
+const data = reactive<TreeList[]>([
+  {
+    name: "no.1",
+    children: [
+      {
+        name: "no.1-1",
+        children: [
+          {
+            name: "no.1-1-1",
+            checked: true,
+            children: [
+              {
+                name: "no.1-1-1-a",
+                checked: false,
+              },
+              {
+                name: "no.1-1-1-b",
+                checked: true,
+              },
+            ],
+          },
+          {
+            name: "no.1-1-2",
+            checked: true,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: "no.2",
+    children: [
+      {
+        name: "no.2-1",
+      },
+    ],
+  },
+  {
+    name: "no.3",
+  },
+]);
 
 //这样获取是有代码提示的
 /* type DefineCom = {
