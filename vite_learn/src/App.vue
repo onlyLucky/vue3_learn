@@ -22,7 +22,9 @@
     @child="getChild"
   ></MyDefineProps> -->
   <!-- <BasicDefineExpose></BasicDefineExpose> -->
-  <WaterFall :list="list"></WaterFall>
+  <!-- <WaterFall :list="list"></WaterFall> -->
+  <GlobalHandle></GlobalHandle>
+  <GlobalComps msg="%%%"></GlobalComps>
 </template>
 
 <script setup lang="ts">
