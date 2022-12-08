@@ -2,7 +2,7 @@
  * @Author: fg
  * @Date: 2022-12-06 14:36:57
  * @LastEditors: fg
- * @LastEditTime: 2022-12-07 14:23:25
+ * @LastEditTime: 2022-12-08 10:05:24
  * @Description: 父子组件通信
 -->
 <template>
@@ -20,6 +20,7 @@
     </div>
   </div>
   <button @click="toParent">传递数据</button>
+  <button @click="getChild">获取children defineExpose</button>
 </template>
 <script setup lang="ts">
 import { reactive } from "vue";
@@ -45,15 +46,25 @@ withDefaults(
 
 // 子组件给父组件传参
 let toParentsData = reactive<number[]>([1, 3, 5, 7]);
-let emit = defineEmits(["on-click", "tap"]);
+// let emit = defineEmits(["on-click", "tap"]);
+let emit = defineEmits<{
+  (e: "on-click", val: number[]): void;
+  (e: "tap", val: string): void;
+  (e: "child", val?: any): void;
+}>();
 const toParent = () => {
   emit("on-click", toParentsData);
   emit("tap", "这个是tap");
 };
 
+const getChild = () => {
+  console.log("getChild");
+  emit("child");
+};
+
 // 子组件暴露给父组件内部属性
 defineExpose({
-  num: toParentsData,
+  name: "暴露属性",
 });
 </script>
 <style></style>

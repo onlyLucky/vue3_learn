@@ -14,13 +14,14 @@
   <!-- <MyComputed></MyComputed> -->
   <!-- <MyWatch></MyWatch> -->
   <!-- <MyWatchEffect></MyWatchEffect> -->
-  <MyDefineProps
-    ref="DefineCom"
+  <!-- <MyDefineProps
     :data="dataArr"
     title="这是个标题"
     @on-click="parentTap"
     @tap="pTap"
-  ></MyDefineProps>
+    @child="getChild"
+  ></MyDefineProps> -->
+  <BasicDefineExpose></BasicDefineExpose>
 </template>
 
 <script setup lang="ts">
@@ -34,8 +35,9 @@ import MyComputed from "./components/basic/05_computed.vue";
 import MyWatch from "./components/basic/06_watch.vue";
 import MyWatchEffect from "./components/basic/07_watchEffect.vue";
 import MyDefineProps from "./components/basic/08_defineProps.vue";
+import BasicDefineExpose from "./components/basic/09_defineExpose/parent.vue";
 
-import { ref, reactive } from "vue";
+import { ref, reactive, onMounted } from "vue";
 let dataArr = reactive<number[]>([1, 2, 3, 4, 5, 6]);
 
 const parentTap = (val: number[]) => {
@@ -49,16 +51,23 @@ const pTap = (val: string) => {
 /* type DefineCom = {
   toParentsData: number[];
 }; */
-const DefineCom = ref();
-console.log(DefineCom.value, "defineCom");
-</script>
-<script lang="ts">
-export default {
-  mounted() {
-    console.log(this.$refs.DefineCom.num.length, "DefineCom");
-  },
+onMounted(() => {
+  console.log("onMounted");
+});
+const getChild = () => {
+  console.log("getChild-defineCom");
+  /* const defineCom = ref<InstanceType<typeof MyDefineProps>>();
+  console.log(defineCom, "defineCom"); */
 };
 </script>
+<!-- <script lang="ts">
+export default {
+  mounted() {
+    // 使用vue2的调用方法一个vue文件中可以有多个script脚本的，但是需要同一种lang
+    // console.log(this.$refs.DefineCom.num.length, "DefineCom");
+  },
+};
+</script> -->
 
 <style scoped>
 .logo {
