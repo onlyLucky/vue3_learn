@@ -3,6 +3,9 @@
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
+    <a href="https://www.emojiall.com/zh-hans/" target="_blank">
+      <img src="./assets/mm.png" class="logo emoji" alt="emoji logo" />
+    </a>
     <a href="https://vuejs.org/" target="_blank">
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
@@ -243,6 +246,9 @@ export default {
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.emoji:hover {
+  filter: drop-shadow(0 0 2em #8c5d59aa);
 }
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
