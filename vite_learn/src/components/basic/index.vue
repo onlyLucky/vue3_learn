@@ -2,7 +2,7 @@
  * @Author: fg
  * @Date: 2022-12-09 15:53:39
  * @LastEditors: fg
- * @LastEditTime: 2022-12-09 16:08:32
+ * @LastEditTime: 2022-12-09 16:47:13
  * @Description: basic 主入口
 -->
 <template>
@@ -50,8 +50,20 @@
   </div> -->
   <!-- slot -->
   <MySlot>
-    <template>
+    <template v-slot>
       <p>这是一个插槽，已经被我占用了</p>
+    </template>
+    <template v-slot:header>
+      <p>这是一个带名称（具名插槽），header</p>
+    </template>
+    <template #footer>
+      <p>这是一个带名称（具名插槽）另一种写法，footer</p>
+    </template>
+    <template #part="{ itemData }">
+      <p>这是一个作用域插槽，data：{{ itemData }}</p>
+    </template>
+    <template #[slotDynName]>
+      <p>这是一个动态插槽，dynamic</p>
     </template>
   </MySlot>
 </template>
@@ -336,6 +348,8 @@ let current = reactive<Comp>({
 const switchComps = (tab: TabType) => {
   current.tabComp = tab.tabComp;
 };
+
+const slotDynName = ref("dynamic");
 </script>
 <!-- <script lang="ts">
 export default {
