@@ -1,0 +1,17 @@
+<!--
+ * @Author: fg
+ * @Date: 2022-12-09 17:38:59
+ * @LastEditors: fg
+ * @LastEditTime: 2022-12-09 17:41:29
+ * @Description: 异步组件加载失败
+-->
+<template>
+  <h3>AsyncComponent load error 🐛🐛🐛</h3>
+</template>
+<script setup lang="ts">
+/**
+ * 异步组件可以减少打包的结果，会将异步组件分开打包，会采用异步的方式加载组件，可以有效的解决一个组件过大的问题
+ * 增加首屏加载响应进入的速度
+ */
+</script>
+<style scoped></style>

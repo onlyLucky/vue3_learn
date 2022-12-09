@@ -2,7 +2,7 @@
  * @Author: fg
  * @Date: 2022-12-09 15:53:39
  * @LastEditors: fg
- * @LastEditTime: 2022-12-09 16:47:13
+ * @LastEditTime: 2022-12-09 19:01:48
  * @Description: basic 主入口
 -->
 <template>
@@ -49,7 +49,7 @@
     </div>
   </div> -->
   <!-- slot -->
-  <MySlot>
+  <!-- <MySlot>
     <template v-slot>
       <p>这是一个插槽，已经被我占用了</p>
     </template>
@@ -65,7 +65,21 @@
     <template #[slotDynName]>
       <p>这是一个动态插槽，dynamic</p>
     </template>
-  </MySlot>
+  </MySlot> -->
+  <!-- 异步组件 -->
+  <AsyncCompsA></AsyncCompsA>
+  <AsyncCompsB></AsyncCompsB>
+  <!-- Suspense vue3内置组件 -->
+  <!-- 它们都只接收一个直接子节点。default 插槽里的节点会尽可能展示出来。如果不能，则展示 fallback 插槽里的节点。 -->
+  <Suspense>
+    <template #default>
+      <AsyncComps></AsyncComps>
+    </template>
+
+    <template #fallback>
+      <div>loading...</div>
+    </template>
+  </Suspense>
 </template>
 
 <script setup lang="ts">
@@ -85,8 +99,11 @@ import TreeVue from "./Tree.vue";
 import dynamicCompA from "./12_dynamicComps1.vue";
 import dynamicCompB from "./12_dynamicComps2.vue";
 import MySlot from "./13_slot.vue";
+import AsyncComps from "./14_asyncComps.vue";
+import AsyncError from "./14_asyncError.vue";
+import AsyncLoading from "./14_asyncLoading.vue";
 
-import { ref, reactive, onMounted, markRaw } from "vue";
+import { ref, reactive, onMounted, markRaw, defineAsyncComponent } from "vue";
 let dataArr = reactive<number[]>([1, 2, 3, 4, 5, 6]);
 
 const parentTap = (val: number[]) => {
@@ -350,6 +367,24 @@ const switchComps = (tab: TabType) => {
 };
 
 const slotDynName = ref("dynamic");
+/* 异步组件 */
+const AsyncCompsA = defineAsyncComponent(() => import("./14_asyncComps.vue"));
+// 完成写法
+const AsyncCompsB = defineAsyncComponent({
+  // 加载函数
+  loader: () => import("./14_asyncComps.vue"),
+
+  // 加载异步组件时使用的组件
+  loadingComponent: AsyncLoading,
+  // 展示加载组件前的延迟时间，默认为 200ms
+  delay: 2000,
+
+  // 加载失败后展示的组件
+  errorComponent: AsyncError,
+  // 如果提供了一个 timeout 时间限制，并超时了
+  // 也会显示这里配置的报错组件，默认值是：Infinity
+  timeout: 8000,
+});
 </script>
 <!-- <script lang="ts">
 export default {
