@@ -28,7 +28,19 @@
   <!-- <WaterFall :list="list"></WaterFall> -->
   <!-- <GlobalHandle></GlobalHandle> -->
   <!-- <GlobalComps msg="%%%"></GlobalComps> -->
-  <TreeVue :data="data"></TreeVue>
+  <!-- <TreeVue :data="data"></TreeVue> -->
+  <div>
+    <button
+      v-for="(item, index) in tabsComps"
+      :key="index"
+      @click="switchComps(item)"
+    >
+      {{ item.name }}
+    </button>
+    <div>
+      <component :is="current.tabComp"></component>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -45,8 +57,10 @@ import MyDefineProps from "./components/basic/08_defineProps.vue";
 import BasicDefineExpose from "./components/basic/09_defineExpose/parent.vue";
 import WaterFall from "./components/basic/10_waterFall.vue";
 import TreeVue from "./components/basic/Tree.vue";
+import dynamicCompA from "./components/basic/12_dynamicComps1.vue";
+import dynamicCompB from "./components/basic/12_dynamicComps2.vue";
 
-import { ref, reactive, onMounted } from "vue";
+import { ref, reactive, onMounted, markRaw } from "vue";
 let dataArr = reactive<number[]>([1, 2, 3, 4, 5, 6]);
 
 const parentTap = (val: number[]) => {
@@ -277,6 +291,36 @@ const getChild = () => {
   console.log("getChild-defineCom");
   /* const defineCom = ref<InstanceType<typeof MyDefineProps>>();
   console.log(defineCom, "defineCom"); */
+};
+
+/* 动态组件 */
+type TabType = {
+  name: string;
+  tabComp: any;
+};
+type Comp = Pick<TabType, "tabComp">;
+
+const tabsComps = reactive<TabType[]>([
+  {
+    name: "dynamicCompA组件",
+    // proxy会代理reactive中的所有内容
+    // 无需对组件进行proxy代理
+    // 必须使用markRaw跳过对组件的代理，否则vue会给警告
+    tabComp: markRaw(dynamicCompA),
+  },
+  {
+    name: "dynamicCompB组件",
+    // proxy会代理reactive中的所有内容
+    // 无需对组件进行proxy代理
+    // 必须使用markRaw跳过对组件的代理，否则vue会给警告
+    tabComp: markRaw(dynamicCompB),
+  },
+]);
+let current = reactive<Comp>({
+  tabComp: tabsComps[0].tabComp,
+});
+const switchComps = (tab: TabType) => {
+  current.tabComp = tab.tabComp;
 };
 </script>
 <!-- <script lang="ts">
