@@ -2,7 +2,7 @@
  * @Author: fg
  * @Date: 2022-12-09 17:05:24
  * @LastEditors: fg
- * @LastEditTime: 2022-12-09 18:52:22
+ * @LastEditTime: 2022-12-12 09:31:24
  * @Description: 异步组件
 -->
 <template>

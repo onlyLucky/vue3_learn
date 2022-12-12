@@ -2,7 +2,7 @@
  * @Author: fg
  * @Date: 2022-12-09 15:53:39
  * @LastEditors: fg
- * @LastEditTime: 2022-12-09 19:01:48
+ * @LastEditTime: 2022-12-12 14:08:06
  * @Description: basic 主入口
 -->
 <template>
@@ -80,6 +80,7 @@
       <div>loading...</div>
     </template>
   </Suspense>
+  <MyTeleport :msg="teleportMsg"></MyTeleport>
 </template>
 
 <script setup lang="ts">
@@ -102,6 +103,7 @@ import MySlot from "./13_slot.vue";
 import AsyncComps from "./14_asyncComps.vue";
 import AsyncError from "./14_asyncError.vue";
 import AsyncLoading from "./14_asyncLoading.vue";
+import MyTeleport from "./15_Teleport.vue";
 
 import { ref, reactive, onMounted, markRaw, defineAsyncComponent } from "vue";
 let dataArr = reactive<number[]>([1, 2, 3, 4, 5, 6]);
@@ -385,6 +387,7 @@ const AsyncCompsB = defineAsyncComponent({
   // 也会显示这里配置的报错组件，默认值是：Infinity
   timeout: 8000,
 });
+const teleportMsg = ref<string>("hello world");
 </script>
 <!-- <script lang="ts">
 export default {
