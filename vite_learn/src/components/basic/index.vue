@@ -2,7 +2,7 @@
  * @Author: fg
  * @Date: 2022-12-09 15:53:39
  * @LastEditors: fg
- * @LastEditTime: 2022-12-12 14:08:06
+ * @LastEditTime: 2022-12-19 10:28:20
  * @Description: basic 主入口
 -->
 <template>
@@ -67,11 +67,11 @@
     </template>
   </MySlot> -->
   <!-- 异步组件 -->
-  <AsyncCompsA></AsyncCompsA>
-  <AsyncCompsB></AsyncCompsB>
+  <!-- <AsyncCompsA></AsyncCompsA>
+  <AsyncCompsB></AsyncCompsB> -->
   <!-- Suspense vue3内置组件 -->
   <!-- 它们都只接收一个直接子节点。default 插槽里的节点会尽可能展示出来。如果不能，则展示 fallback 插槽里的节点。 -->
-  <Suspense>
+  <!-- <Suspense>
     <template #default>
       <AsyncComps></AsyncComps>
     </template>
@@ -80,7 +80,8 @@
       <div>loading...</div>
     </template>
   </Suspense>
-  <MyTeleport :msg="teleportMsg"></MyTeleport>
+  <MyTeleport :msg="teleportMsg"></MyTeleport> -->
+  <MyTransition></MyTransition>
 </template>
 
 <script setup lang="ts">
@@ -104,6 +105,7 @@ import AsyncComps from "./14_asyncComps.vue";
 import AsyncError from "./14_asyncError.vue";
 import AsyncLoading from "./14_asyncLoading.vue";
 import MyTeleport from "./15_Teleport.vue";
+import MyTransition from "./16_Transition.vue";
 
 import { ref, reactive, onMounted, markRaw, defineAsyncComponent } from "vue";
 let dataArr = reactive<number[]>([1, 2, 3, 4, 5, 6]);
