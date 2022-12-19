@@ -2,7 +2,7 @@
  * @Author: fg
  * @Date: 2022-12-09 15:53:39
  * @LastEditors: fg
- * @LastEditTime: 2022-12-19 10:28:20
+ * @LastEditTime: 2022-12-19 13:44:29
  * @Description: basic 主入口
 -->
 <template>
@@ -81,7 +81,9 @@
     </template>
   </Suspense>
   <MyTeleport :msg="teleportMsg"></MyTeleport> -->
-  <MyTransition></MyTransition>
+  <div>
+    <MyTransition></MyTransition>
+  </div>
 </template>
 
 <script setup lang="ts">
