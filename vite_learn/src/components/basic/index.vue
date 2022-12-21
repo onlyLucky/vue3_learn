@@ -2,7 +2,7 @@
  * @Author: fg
  * @Date: 2022-12-09 15:53:39
  * @LastEditors: fg
- * @LastEditTime: 2022-12-19 13:44:29
+ * @LastEditTime: 2022-12-21 17:23:15
  * @Description: basic 主入口
 -->
 <template>
@@ -81,9 +81,10 @@
     </template>
   </Suspense>
   <MyTeleport :msg="teleportMsg"></MyTeleport> -->
-  <div>
+  <!-- <div>
     <MyTransition></MyTransition>
-  </div>
+  </div> -->
+  <ProvideInject></ProvideInject>
 </template>
 
 <script setup lang="ts">
@@ -108,6 +109,7 @@ import AsyncError from "./14_asyncError.vue";
 import AsyncLoading from "./14_asyncLoading.vue";
 import MyTeleport from "./15_Teleport.vue";
 import MyTransition from "./16_Transition.vue";
+import ProvideInject from "./17_provide_Inject/parents.vue";
 
 import { ref, reactive, onMounted, markRaw, defineAsyncComponent } from "vue";
 let dataArr = reactive<number[]>([1, 2, 3, 4, 5, 6]);
