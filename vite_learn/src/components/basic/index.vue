@@ -2,7 +2,7 @@
  * @Author: fg
  * @Date: 2022-12-09 15:53:39
  * @LastEditors: fg
- * @LastEditTime: 2022-12-21 17:23:15
+ * @LastEditTime: 2022-12-22 20:41:23
  * @Description: basic 主入口
 -->
 <template>
@@ -84,7 +84,8 @@
   <!-- <div>
     <MyTransition></MyTransition>
   </div> -->
-  <ProvideInject></ProvideInject>
+  <!-- <ProvideInject></ProvideInject> -->
+  <BusIndex></BusIndex>
 </template>
 
 <script setup lang="ts">
@@ -110,6 +111,7 @@ import AsyncLoading from "./14_asyncLoading.vue";
 import MyTeleport from "./15_Teleport.vue";
 import MyTransition from "./16_Transition.vue";
 import ProvideInject from "./17_provide_Inject/parents.vue";
+import BusIndex from "./18_Bus/parent.vue";
 
 import { ref, reactive, onMounted, markRaw, defineAsyncComponent } from "vue";
 let dataArr = reactive<number[]>([1, 2, 3, 4, 5, 6]);

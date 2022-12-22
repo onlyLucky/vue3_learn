@@ -2,7 +2,7 @@
  * @Author: fg
  * @Date: 2022-12-22 11:18:27
  * @LastEditors: fg
- * @LastEditTime: 2022-12-22 11:44:40
+ * @LastEditTime: 2022-12-22 22:11:51
  * @Description: $Bus 实现
  */
 
@@ -35,4 +35,4 @@ class Bus<T extends BusParams> implements BusClass<T> {
   }
 }
 
-export default new Bus<number>()
+export default new Bus()
