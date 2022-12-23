@@ -2,7 +2,7 @@
  * @Author: fg
  * @Date: 2022-12-09 15:53:39
  * @LastEditors: fg
- * @LastEditTime: 2022-12-22 20:41:23
+ * @LastEditTime: 2022-12-23 18:24:47
  * @Description: basic 主入口
 -->
 <template>
@@ -85,7 +85,8 @@
     <MyTransition></MyTransition>
   </div> -->
   <!-- <ProvideInject></ProvideInject> -->
-  <BusIndex></BusIndex>
+  <!-- <BusIndex></BusIndex> -->
+  <myTsx title="@123" @on-click="myTsxTap"></myTsx>
 </template>
 
 <script setup lang="ts">
@@ -112,6 +113,7 @@ import MyTeleport from "./15_Teleport.vue";
 import MyTransition from "./16_Transition.vue";
 import ProvideInject from "./17_provide_Inject/parents.vue";
 import BusIndex from "./18_Bus/parent.vue";
+import myTsx from "./19_tsx";
 
 import { ref, reactive, onMounted, markRaw, defineAsyncComponent } from "vue";
 let dataArr = reactive<number[]>([1, 2, 3, 4, 5, 6]);
@@ -396,6 +398,9 @@ const AsyncCompsB = defineAsyncComponent({
   timeout: 8000,
 });
 const teleportMsg = ref<string>("hello world");
+const myTsxTap = (msg: number) => {
+  console.log(msg, "msg");
+};
 </script>
 <!-- <script lang="ts">
 export default {
