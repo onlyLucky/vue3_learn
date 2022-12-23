@@ -2,7 +2,7 @@
  * @Author: fg
  * @Date: 2022-12-23 21:48:13
  * @LastEditors: fg
- * @LastEditTime: 2022-12-23 22:32:51
+ * @LastEditTime: 2022-12-23 22:35:33
  * @Description: v-model 子组件
 -->
 
@@ -25,7 +25,7 @@ type Props = {
   };
   modelModifiers?: { slice: boolean };
 };
-// 固定名称的写法
+// 固定名称的写法 其实是vue中的 自定义指令的方式实现的
 const propData = defineProps<Props>();
 const emit = defineEmits(["update:modelValue", "update:title"]);
 const close = () => {
