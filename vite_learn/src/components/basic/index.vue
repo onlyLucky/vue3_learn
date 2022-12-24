@@ -2,7 +2,7 @@
  * @Author: fg
  * @Date: 2022-12-09 15:53:39
  * @LastEditors: fg
- * @LastEditTime: 2022-12-23 21:44:50
+ * @LastEditTime: 2022-12-24 11:17:42
  * @Description: basic 主入口
 -->
 <template>
@@ -87,7 +87,8 @@
   <!-- <ProvideInject data-index="17"></ProvideInject> -->
   <!-- <BusIndex data-index="18"></BusIndex> -->
   <!-- <myTsx data-index="19" title="@123" @on-click="myTsxTap"></myTsx> -->
-  <VModel data-index="20"></VModel>
+  <!-- <VModel data-index="20"></VModel> -->
+  <MyDirective data-index="21"></MyDirective>
 </template>
 
 <script setup lang="ts">
@@ -116,6 +117,7 @@ import ProvideInject from "./17_provide_Inject/parents.vue";
 import BusIndex from "./18_Bus/parent.vue";
 import myTsx from "./19_tsx";
 import VModel from "./20_v-model/parent.vue";
+import MyDirective from "./21_directive/index.vue";
 
 import { ref, reactive, onMounted, markRaw, defineAsyncComponent } from "vue";
 let dataArr = reactive<number[]>([1, 2, 3, 4, 5, 6]);
