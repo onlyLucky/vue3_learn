@@ -8,6 +8,7 @@
 - [目录](#目录)
 - [配置](#配置)
   - [1.Vue3 自动引入插件](#1vue3-自动引入插件)
+  - [2.vscode 页面编译器配置](#2vscode-页面编译器配置)
 - [Q\&A](#qa)
   - [01.npm 版本兼容导致的 npm ERR! ERESOLVE unable to resolve dependency tree](#01npm-版本兼容导致的-npm-err-eresolve-unable-to-resolve-dependency-tree)
 - [常见命令添加](#常见命令添加)
@@ -48,6 +49,10 @@ export default defineConfig({
 
 配置完成之后使用 ref reactive watch 等 无须 import 导入 可以直接使用
 
+### 2.vscode 页面编译器配置
+
+[Monaco Editor 快速入门](https://juejin.cn/post/7003722250960502820)
+
 ## Q&A
 
 ### 01.npm 版本兼容导致的 npm ERR! ERESOLVE unable to resolve dependency tree
@@ -67,3 +72,5 @@ npm i --legacy-peer-deps
 - `--legacy-peer-deps` 忽视 npm 版本安装包
 
 ## 相关参考
+
+[Vue3 hook 库 VueUse](https://vueuse.org/guide/)
