@@ -2,7 +2,7 @@
  * @Author: fg
  * @Date: 2022-12-24 10:00:30
  * @LastEditors: fg
- * @LastEditTime: 2022-12-24 12:18:16
+ * @LastEditTime: 2022-12-24 14:11:51
  * @Description: 自定义vue3指令
 -->
 <template>
@@ -14,6 +14,7 @@
       v-move-directive="{ background: 'green', flag: show }"
     ></Dialog>
     <ChildA></ChildA>
+    <Drag></Drag>
   </div>
 </template>
 <script setup lang="ts">
@@ -34,6 +35,7 @@ Vue2 指令 bind inserted update componentUpdated unbind
 */
 import Dialog from "./child.vue";
 import ChildA from "./childA.vue";
+import Drag from "./drag.vue";
 import vMoveDirective from "./v-move-directive";
 const show = ref<boolean>(false);
 </script>
