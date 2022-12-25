@@ -2,7 +2,7 @@
  * @Author: fg
  * @Date: 2022-12-09 15:53:39
  * @LastEditors: fg
- * @LastEditTime: 2022-12-25 19:06:29
+ * @LastEditTime: 2022-12-25 19:22:53
  * @Description: basic 主入口
 -->
 <template>
@@ -89,8 +89,9 @@
   <!-- <myTsx data-index="19" title="@123" @on-click="myTsxTap"></myTsx> -->
   <!-- <VModel data-index="20"></VModel> -->
   <!-- <MyDirective data-index="21"></MyDirective> -->
-  <HookTest data-index="22"></HookTest>
-  <MyPlugin data-index="23"></MyPlugin>
+  <!-- <HookTest data-index="22"></HookTest>
+  <MyPlugin data-index="23"></MyPlugin> -->
+  <CssStyle data-index="24"></CssStyle>
 </template>
 
 <script setup lang="ts">
@@ -122,6 +123,7 @@ import VModel from "./20_v-model/parent.vue";
 import MyDirective from "./21_directive/index.vue";
 import HookTest from "./22_hook.vue";
 import MyPlugin from "./23_vuePlugin/index.vue";
+import CssStyle from "./24_cssStyle/index.vue";
 
 import { ref, reactive, onMounted, markRaw, defineAsyncComponent } from "vue";
 let dataArr = reactive<number[]>([1, 2, 3, 4, 5, 6]);
