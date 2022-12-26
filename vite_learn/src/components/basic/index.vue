@@ -2,7 +2,7 @@
  * @Author: fg
  * @Date: 2022-12-09 15:53:39
  * @LastEditors: fg
- * @LastEditTime: 2022-12-25 19:56:33
+ * @LastEditTime: 2022-12-26 18:06:41
  * @Description: basic 主入口
 -->
 <template>
@@ -92,7 +92,8 @@
   <!-- <HookTest data-index="22"></HookTest>
   <MyPlugin data-index="23"></MyPlugin> -->
   <!-- <CssStyle data-index="24"></CssStyle> -->
-  <TailWindCss data-index="25"></TailWindCss>
+  <!-- <TailWindCss data-index="25"></TailWindCss> -->
+  <MyNextTick data-index="26"></MyNextTick>
 </template>
 
 <script setup lang="ts">
@@ -126,6 +127,7 @@ import HookTest from "./22_hook.vue";
 import MyPlugin from "./23_vuePlugin/index.vue";
 import CssStyle from "./24_cssStyle/index.vue";
 import TailWindCss from "./25_tailwindcss.vue";
+import MyNextTick from "./26_nextTick.vue";
 
 import { ref, reactive, onMounted, markRaw, defineAsyncComponent } from "vue";
 let dataArr = reactive<number[]>([1, 2, 3, 4, 5, 6]);
